@@ -22,3 +22,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # my custom service definitions
+    App\Controller\HomeController:
+        arguments:
+            # will load this twig service in this variale
+            $twig: '@twig' # service wich is a Twig\Environment instance
