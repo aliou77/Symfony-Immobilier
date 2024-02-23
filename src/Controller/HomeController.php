@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Property;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -21,11 +23,14 @@ class HomeController extends AbstractController
     }
 
 
-    #[Route('/home', name: 'home')]
-    public function index(): Response
+    #[Route('/', name: 'home')]
+    public function index(EntityManagerInterface $em): Response
     {
+        $repo = $em->getRepository(Property::class);
+        $properties = $repo->findLatest();
         return new Response( $this->twig->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
+            'properties' => $properties
         ]) );
     }
 }

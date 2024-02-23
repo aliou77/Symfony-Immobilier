@@ -6,7 +6,13 @@
 
 
     <div class=" text-3xl text-red-400">
-        Sallut pt comment sava
+        welcome to home controller
+        <br><br>
+        {% for property in properties %}
+            <h1>{{ property.title }}</h1>
+            <h2>{{ property.formatedPrice }} $</h2>
+        {% endfor %}
+
     </div>
 
 {% endblock %}
