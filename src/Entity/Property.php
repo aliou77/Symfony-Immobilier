@@ -5,13 +5,14 @@ namespace App\Entity;
 use App\Repository\PropertyRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 #[ORM\Entity(repositoryClass: PropertyRepository::class)]
 class Property
 {
     const HEAT = [
-        0 => 'electrique',
-        1 => 'gaz'
+        0 => 'Electric',
+        1 => 'Gaz'
     ];
 
     #[ORM\Id]
@@ -71,6 +72,10 @@ class Property
     public function getTitle(): ?string
     {
         return $this->title;
+    }
+
+    public function getSlug(): ?string{
+        return (new Slugify())->slugify($this->title);
     }
 
     public function setTitle(string $title): static
@@ -159,6 +164,10 @@ class Property
     public function getHeat(): ?int
     {
         return $this->heat;
+    }
+
+    public function getTypeHeat(): ?string{
+        return self::HEAT[$this->heat];
     }
 
     public function setHeat(int $heat): static
