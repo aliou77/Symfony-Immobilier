@@ -4,15 +4,50 @@
 
 {% block body %}
 
+    <section class="banner-section">
+        <div class="content">
 
-    <div class=" text-3xl text-red-400">
-        welcome to home controller
-        <br><br>
+        </div>
+    </section>
+
+    <div class=" text-3xl">
         {% for property in properties %}
-            <a href="{{ path('property.show', {id: property.id, slug:property.slug}) }}"><h1>{{ property.title }}</h1></a>
+            <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}"><h1>{{ property.title }}</h1></a>
             <h2>{{ property.formatedPrice }} $</h2>
         {% endfor %}
-
     </div>
+
+    <section class="properties-section desktop-width">
+        <div class="content mb-4 flex gap-4 ">
+            <div class="property-item bg-[#f7adad] ">
+                <div class="img h-[14.2rem]">
+                    <!-- <img class="w-full" src="{{ asset('agence/img1.jpg') }}" alt="property"> -->
+                </div>
+                <div class="property-infos px-[20px] pb-4">
+                    <div class="infos text-lg text-center">
+                        <h2 class="font-medium capitalize mt-1">
+                            <strong>mon premier bien</strong>
+                        </h2>
+                        <p class="text-main font-medium">5000 $</p>
+                        <p class="text-back text-sm">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <div class="details flex gap-2 flex-wrap mt-[20px]">
+                        <div class="detail-item">
+                            Rooms : <span class="text-main">3</span>
+                        </div>
+                        <div class="detail-item">
+                            Bedrooms : <span class="text-main">3</span>
+                        </div>
+                        <div class="detail-item">
+                            floor : <span class="text-main">3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="read-more w-full bg-main p-[10px] hidden">
+                    <p class="text-center font-medium text-white">Read More</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

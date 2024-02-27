@@ -12,4 +12,18 @@ $(document).ready(function () {
         });
     }
     modalFeat();
+
+    // 
+    $(".properties-section .property-item").each((i, item)=>{
+        $(item).hover(function () {
+                // over
+                $(item).find("div.read-more").slideDown()
+            }, function () {
+                // out
+                $(item).find("div.read-more").slideUp()
+            }
+        );
+    })
+
+
 });

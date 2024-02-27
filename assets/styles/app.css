@@ -11,6 +11,7 @@ body{
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
+    background-color: #ededed;
 }
 
 /* css classes */
@@ -85,7 +86,7 @@ body{
 
 /* css footer */
 .bg-footer{
-    background: url('../img/agence/footer-bg.jpg');
+    background: url('../image/agence/footer-bg.jpg');
     @apply bg-no-repeat bg-cover bg-bottom w-full;
 }
 .footer-link > a:hover{
@@ -93,4 +94,29 @@ body{
 }
 .links p a:hover{
     @apply text-main;
+}
+
+/* css property card */
+.property-item{
+    @apply max-w-[340px] w-full;
+}
+.detail-item{
+    @apply border border-main rounded-md px-2 py-1;
+}
+.property-item img{
+    border-radius: 5px 5px 0 0;
+}
+.properties-section .property-item{
+    @apply border border-white rounded-md;
+    transition: all .4s;
+}
+.properties-section .property-item .img{
+    background: url('../image/agence/img1.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.properties-section .property-item:hover{
+    @apply border-main;
+    box-shadow: 0 0 12px -2px rgb(28, 85, 136); /* x y blur propagation*/
 }
