@@ -57,7 +57,6 @@ body{
         position: fixed;
         top: 0;
         right: 0;
-        width: 20rem;
         height: 100%;
         transform: translateX(30rem);
     }
@@ -82,4 +81,16 @@ body{
 }
 .open{
     transform: translateX(0) !important;
+}
+
+/* css footer */
+.bg-footer{
+    background: url('../img/agence/footer-bg.jpg');
+    @apply bg-no-repeat bg-cover bg-bottom w-full;
+}
+.footer-link > a:hover{
+    transition: all .4s;
+}
+.links p a:hover{
+    @apply text-main;
 }

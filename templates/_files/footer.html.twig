@@ -1,3 +1,61 @@
-<footer>
-    
+<footer class="bg-footer">
+    <div class="content bg-[#000000db]">
+        <div  class="flex sm:flex-row  flex-col sm:items-stretch items-center sm:gap-[13rem] gap-[3rem] sm:pt-[7rem] pt-[4rem] pb-[5rem] desktop-width">
+            <div class="footer-item">
+                <div class="logo w-[100px] text-white">
+                    <a href="{{ path('home')}}" class="pt-serif flex flex-col items-center leading-[1]"><span class="text-main text-[40px]">Helter</span> <span class="text-[20px]">Real State</span></a>
+                </div>
+            </div>
+            <div id="footer-links" class="flex justify-center flex-wrap sm:flex-row flex-col sm:gap-[5rem] gap-[2rem] sm:text-left text-center">
+                <div class="footer-item text-white">
+                    <h5 class="font-semibold text-main text-lg mb-[5px]">Help Center</h5>
+                    <div class="links">
+                        <p>
+                            0125-555-129
+                        </p>
+                        <p>
+                            Helter@contact.com
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-item text-white">
+                    <h5 class="font-semibold text-main text-lg mb-[5px]">Pages</h5>
+                    <div class="links">
+                        <p>
+                            <a href="{{ path('home') }}">Home</a>
+                        </p>
+                        <p>
+                            <a href="{{ path('property.index') }}">Properties</a>
+                        </p>
+                        <p>
+                            <a href="#">Contact Us</a>
+                        </p>
+                        <p>
+                            <a href="#">About Us</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-item text-white">
+                    <h5 class="font-semibold text-main text-lg mb-[5px]">Follow Us</h5>
+                    <div class="links">
+                        <ul class="flex gap-4 items-center sm:justify-normal justify-center">
+                            <li>
+                                <a href="#"><i class="fa-brands fa-facebook text-[1.7rem] hover:text-main"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa-brands fa-instagram text-[1.7rem] hover:text-main"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa-brands fa-twitter text-[1.7rem] hover:text-main"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex gap-2 sm:flex-row flex-col items-center justify-between text-white font-medium pb-[3rem] desktop-width">
+            <p>Helter © 2024. All rights are reserved</p>
+            <p>Made by Mamadou A Diallo</p>
+        </div>
+    </div>
 </footer>
