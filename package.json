@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "autoprefixer": "^10.4.17",
+        "jquery": "^3.7.1",
         "postcss": "^8.4.35",
         "postcss-loader": "^7.3.4",
         "prop-types": "^15.8.1",

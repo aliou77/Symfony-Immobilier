@@ -27,6 +27,7 @@ class PropertyController extends AbstractController
         $properties = $repo->findAllVisible();
         return $this->render('property/index.html.twig', [
             'controller_name' => 'PropertyController',
+            'current_menu' => 'properties'
         ]);
     }
 

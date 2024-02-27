@@ -1,14 +1,85 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body{
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
 
 /* css classes */
-
-@media screen and (min-width: 1440px) {
+.pt-serif{
+    font-family: "PT Serif", sans-serif;
+}
+.roboto{
+    font-family: "Roboto", sans-serif;
+}
+.desktop-width{
+    max-width: calc(100vw - 10rem);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.general-width{
+    max-width: calc(100vw - 10rem);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+/* mobile */
+@media screen and (max-width: 640px) {
     .desktop-width{
-        max-width: 1440px;
-        margin: 0 auto;
+        max-width: none;
+        padding-left: 24px;
+        padding-right: 24px;
         width: 100%;
     }
+    .general-width{
+        max-width: 100%;
+        margin: 0;
+        width: 100%;
+    }
+    .ul-head-2{
+        max-width: none !important;
+        width: 100%;
+    }
+    .ul-head-2 li{
+        width: 100%;
+    }
+    /* head-2 */
+    #head-2{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 20rem;
+        height: 100%;
+        transform: translateX(30rem);
+    }
+}
+
+
+/* css header */
+.ul-head-2{
+    max-width: calc(100% - 7rem);
+}
+.ul-head-2 li a, div.login a{
+    transition: all .4s;
+}
+.ul-head-2 li a.active{
+    @apply bg-main;
+}
+.ul-head-2 li a:hover{
+    @apply bg-main;
+}
+.item-link{
+    @apply text-white text-[18px] font-medium rounded-md px-[20px] py-[8px] flex items-baseline gap-1;
+}
+.open{
+    transform: translateX(0) !important;
 }

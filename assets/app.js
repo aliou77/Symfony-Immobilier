@@ -6,10 +6,11 @@
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
+import './script.js';
 
 // for fontAwesome
-import './fontawesome/css/all.css'
-import './fontawesome/js/all.js'
+import './fontawesome/css/all.css';
+import './fontawesome/js/all.js';
 
 
 // import './react/controllers/App';

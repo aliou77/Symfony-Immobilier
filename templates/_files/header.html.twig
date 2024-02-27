@@ -1,8 +1,75 @@
 <header>
-    <div class="container">
-        <div class="head-1 p-2 bg-[#1C5588]">
-            <i class="fa fa-phone"></i>
+    <div class="header-container ">
+        <div class="head-1 flex justify-between items-center my-[1.5rem] desktop-width">
+            <div class="logo w-[100px]">
+                <a href="#" class="pt-serif flex flex-col items-center leading-[1]"><span class="text-main text-[40px]">Helter</span> <span class="text-[20px]">Real State</span></a>
+            </div>
+            <div class="others hidden sm:flex justify-around max-w-[55rem] w-full">
+                <div class="others-item flex gap-2">
+                    <div>
+                        <i class="fa fa-phone border-[3px] border-main text-main p-[15px]"></i>
+                    </div>
+                    <div class="">
+                        <p>0125-555-129</p>
+                        <p>Call Us</p>
+                    </div>
+                </div>
+                <div class="others-item flex gap-2">
+                    <div >
+                        <i class="fa fa-clock border-[3px] border-main text-main p-[15px]"></i>
+                    </div>
+                    <div class="">
+                        <p>Mon-Fri 10.00-18.00</p>
+                        <p>Sat-Fri 10.00-17.00</p>
+                    </div>
+                </div>
+                <div class="others-item flex gap-2">
+                    <div >
+                        <i class="fa fa-location-dot border-[3px] border-main text-main p-[15px]"></i>
+                    </div>
+                    <div class="">
+                        <p>530 GN kaloum center</p>
+                        <p>Kaloum,9500</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bars sm:hidden block">
+                <span id="open-modal">
+                    <i class="fa fa-bars text-[1.7rem] text-main cursor-pointer"></i>
+                </span>
+            </div>
         </div>
-        <div class="head-1 p-2 bg-[#001C2F]"></div>
+        <div id="head-2" class="head-2 bg-back w-full">
+            <div class="content flex sm:flex-row flex-col sm:items-center items-start justify-between general-width">
+                <div class="close-modal sm:hidden flex justify-end px-[24px] pt-[10px]">
+                    <span id="close-modal">
+                        <i class="fa fa-xmark text-white text-[2rem] cursor-pointer"></i>
+                    </span>
+                </div>
+                
+                <ul class="ul-head-2 flex sm:flex-row flex-col sm:items-center items-start gap-2 py-[20px] w-full">
+                    <li>
+                        <a href="{{ path('home') }}" class="item-link {% if current_menu is defined and current_menu == 'home' %}active{% endif %}">
+                            <i class="fa fa-home text-white"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('property.index') }}" class="item-link {% if current_menu is defined and current_menu == 'properties' %}active{% endif %}">Properties</a>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link {% if current_menu is defined and current_menu == 'about' %}active{% endif %}">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link {% if current_menu is defined and current_menu == 'contact' %}active{% endif %}">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="login sm:ms-0 ms-[20px]">
+                    <a href="#" class="text-lg rounded-md bg-white text-main font-medium px-[20px] py-[8px] hover:text-white hover:bg-main">
+                        <span>Sign In</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </header>

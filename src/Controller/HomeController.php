@@ -30,7 +30,8 @@ class HomeController extends AbstractController
         $properties = $repo->findLatest();
         return new Response( $this->twig->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'properties' => $properties
+            'properties' => $properties,
+            'current_menu' => 'home',
         ]) );
     }
 }
