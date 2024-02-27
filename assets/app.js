@@ -7,9 +7,12 @@
  */
 import './styles/app.css';
 
+// for fontAwesome
+import './fontawesome/css/all.css'
+import './fontawesome/js/all.js'
 
 
-import './react/controllers/App';
+// import './react/controllers/App';
 
 // 
 
