@@ -18,3 +18,6 @@ displays all services or classes that will be automaticly loaded when symfony se
 # ========= AUTOWIRING =============
 to use a service (class) just have to load his class like this:
 Environment $twig;
+
+# ========= DEBUG PACKAGISTS LIKE SECURITY =============
+php bin/console config:dump-reference security => will show all configuration information inside security.yml file.
