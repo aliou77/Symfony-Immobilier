@@ -12,7 +12,7 @@
 
     <div class=" text-3xl">
         {% for property in properties %}
-            <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}"><h1>{{ property.title }}</h1></a>
+            <a href="{{ path('property.show', {id:property.id, slug:property.slug}) }}"><h1>{{ property.title }}</h1></a>
             <h2>{{ property.formatedPrice }} $</h2>
         {% endfor %}
     </div>
