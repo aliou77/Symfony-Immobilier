@@ -34,6 +34,7 @@ class PropertyController extends AbstractController
     #[Route('/properties/{slug}-{id}', name: 'property.show', requirements: ['slug' => "[A-Za-z0-9\-]*"])]
     public function show($slug, $id, Property $property): Response
     {
+        // security check for fake slugs
         if($slug !== $property->getSlug()){
             return $this->redirectToRoute('property.show', [
                     'slug' => $property->getSlug(), 
@@ -41,6 +42,7 @@ class PropertyController extends AbstractController
                 ], 301);
         }
         $result = $this->em->getRepository(Property::class)->find($id);
+        dump($result);
         return $this->render('property/show.html.twig', [
             'controller_name' => 'PropertyController',
             'property' => $result,
