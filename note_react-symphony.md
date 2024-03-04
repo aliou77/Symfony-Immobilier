@@ -38,17 +38,28 @@ php bin/console config:dump-reference security => will show all configuration in
 - and choose the relation type
 
 
+# ========= MANY TO MANY LOGIC =============
+- AssociationField::new('options')->hideOnIndex() in PropertyCrudController allow to add an association field inside the form
+add the input field will be automatically guessed.
 
-# ========= INPUTS validation
+
+# ========= INPUTS validation =============
 - using #[Assert\Range(min: 1, max:10 )] allows to make constraints in form fields before submitting form.
 like : 
 #[Assert\Range(min: 1, max:30 )]
 #[ORM\Column]
 private ?int $bedrooms = null;
 
-
+# ========= INPUTS validation =============
+- to see migrations status
+php bin/console doctrine:migrations:status
+- to go back to the previous migration
+php bin/console doctrine:migrations:migrate DoctrineMigrations\Version20240228165928
 
 
 # ========= TASKS =============
 - Redesign search input based on template 
 - design errors layout
+- when designing property layout include displaying options
+- display errors and success messages
+

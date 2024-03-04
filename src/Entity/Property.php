@@ -70,7 +70,7 @@ class Property
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\ManyToMany(targetEntity: Option::class, mappedBy: 'properties')]
+    #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'properties')]
     private Collection $options;
 
     public function __construct()
@@ -287,4 +287,5 @@ class Property
 
         return $this;
     }
+
 }

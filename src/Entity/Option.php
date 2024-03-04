@@ -19,7 +19,7 @@ class Option
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Property::class, inversedBy: 'options')]
+    #[ORM\ManyToMany(targetEntity: Property::class, mappedBy: 'options')]
     private Collection $properties;
 
     public function __construct()
@@ -66,5 +66,14 @@ class Option
         $this->properties->removeElement($property);
 
         return $this;
+    }
+
+    /**
+     * this function will return the name of each option converted to a string
+     * to display it in the edit page admin (PropertyCrudController)
+     */
+    public function __toString()
+    {
+        return $this->name;
     }
 }
