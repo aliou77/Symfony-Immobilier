@@ -5,14 +5,14 @@
     <div class="property-infos px-[20px] pb-4">
         <div class="infos text-lg text-center">
             <h2 class="font-medium capitalize mt-2 text-[22px] ">
-                <a class="w-full hover:text-main" href="{{ path('property.show', {id:property.id, slug:property.slug}) }}">
-                    <strong class="pt-serif">{{ property.truncatedString(property.title, 20)  }}</strong>
+                <a class="block w-full hover:text-main" href="{{ path('property.show', {id:property.id, slug:property.slug}) }}">
+                    <strong class="pt-serif">{{ property.truncatedString(property.title, 15)  }}</strong>
                 </a>
             </h2>
             <p class="text-main font-medium text-[20px] my-[7px]">{{ property.formatedPrice }} $</p>
             <p class="text-back text-sm">{{ property.truncatedString(property.description, 35) }}</p>
         </div>
-        <div class="details flex sm:gap-[12px] gap-[9px] flex-wrap mt-[20px]">
+        <div class="details flex justify-center gap-[9px] flex-wrap mt-[20px]">
             <div class="detail-item" title="Rooms">
                 <span>
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"

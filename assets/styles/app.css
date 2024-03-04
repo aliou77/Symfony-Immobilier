@@ -22,13 +22,13 @@ body{
     font-family: "Roboto", sans-serif;
 }
 .desktop-width{
-    max-width: calc(100vw - 10rem);
+    max-width: calc(100vw - 7rem);
     margin-left: auto;
     margin-right: auto;
     width: 100%;
 }
 .general-width{
-    max-width: calc(100vw - 10rem);
+    max-width: calc(100vw - 7rem);
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -73,7 +73,7 @@ body{
         top: 0;
         right: 0;
         height: 100%;
-        transform: translateX(30rem);
+        transform: translateX(45rem);
     }
 }
 
@@ -117,7 +117,7 @@ body{
 
 /* css property card */
 .property-item{
-    @apply max-w-[340px] w-full;
+    @apply max-w-[307px] w-full border border-back;
 }
 .detail-item{
     @apply border border-main rounded-md px-2 py-1 flex gap-[10px] items-center;
@@ -126,7 +126,7 @@ body{
     border-radius: 5px 5px 0 0;
 }
 .properties-section .property-item{
-    @apply border border-white rounded-md;
+    @apply border border-back rounded-md;
     transition: all .4s;
 }
 .properties-section .property-item .img{
@@ -153,3 +153,29 @@ div.read-more{
     @apply border border-main rounded-md px-[20px] py-[4rem];
     box-shadow: 3px 3px 16px -8px rgb(28, 85, 136);
 }
+
+/* css pagination */
+.pagination{
+    @apply flex items-center sm:gap-[10px] gap-[5px];
+}
+.pagination .page a{
+    @apply  text-back font-medium py-[10px] sm:px-[20px] px-[10px] rounded-md;
+    transition: all .4s;
+}
+.pagination .first a, .pagination .last a, .pagination .previous a, .pagination .next a{
+    @apply  text-back font-medium p-[10px] rounded-md;
+    transition: all .4s;
+}
+.pagination .previous{
+    @apply me-4;
+}
+.pagination .next{
+    @apply ms-4;
+}
+.pagination a:hover{
+    @apply bg-main text-white;
+}
+.pagination .current{
+    @apply py-[10px] sm:px-[20px] px-[10px] bg-main text-white rounded-md;
+}
+
