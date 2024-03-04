@@ -21,3 +21,24 @@ Environment $twig;
 
 # ========= DEBUG PACKAGISTS LIKE SECURITY =============
 php bin/console config:dump-reference security => will show all configuration information inside security.yml file.
+
+
+# ========= SET UP A SEARCH FORM =============
+- create a ENTITY not linked to the database with fields u want to use
+- create a form Type object then render it in the property.index controller
+- and when data is submitted handle it in Repository then return the result data to the view controller.
+
+
+# ========= INPUTS validation
+- using #[Assert\Range(min: 1, max:10 )] allows to make constraints in form fields before submitting form.
+like : 
+#[Assert\Range(min: 1, max:30 )]
+#[ORM\Column]
+private ?int $bedrooms = null;
+
+
+
+
+# ========= TASKS =============
+- Redesign search input based on template 
+- design errors layout

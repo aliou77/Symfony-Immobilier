@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Property;
+use App\Entity\PropertySearch;
+use App\Form\PropertySearchType;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,12 +27,17 @@ class PropertyController extends AbstractController
     #[Route('/properties', name: 'property.index')]
     public function index(PaginatorInterface $panigator, Request $request): Response
     {
-        // create an entity which represents our research 
-        // create an form for fields
-        // handle traitments in this controller.
+        // form search handler
+        $search = new PropertySearch();
+        $form = $this->createForm(PropertySearchType::class, $search);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() and $form->isValid()){
+            // code...
+        }
 
         $repo = $this->em->getRepository(Property::class);
-        $query = $repo->findAllVisibleQuery();
+        $query = $repo->findAllVisibleQuery($search);
         $propertiesPagination = $panigator->paginate(
             $query,
             $request->query->getInt('page', 1),
@@ -40,6 +47,7 @@ class PropertyController extends AbstractController
             'controller_name' => 'PropertyController',
             'properties' => $propertiesPagination,
             'current_menu' => 'properties',
+            'form' => $form->createView()
         ]);
     }
 

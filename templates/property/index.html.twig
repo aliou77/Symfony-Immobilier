@@ -7,6 +7,15 @@
     <div class="head-properties">
         <h1>Found 32 Properties for sell & rent</h1>
     </div>
+
+    <div class="form-search-content my-4 desktop-width">
+        {{ form_start(form) }}
+            {{ form_row(form.maxPrice) }}
+            {{ form_row(form.minSurface) }}
+            <button type="submit" class="btn-search">Search</button>
+        {{ form_end(form) }}
+    </div>
+    
     <section class="properties-section desktop-width">
         <div class="content mb-4 flex flex-wrap gap-12 justify-center">
             {% for property in properties %}

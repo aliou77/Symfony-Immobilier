@@ -179,3 +179,19 @@ div.read-more{
     @apply py-[10px] sm:px-[20px] px-[10px] bg-main text-white rounded-md;
 }
 
+/* css form-search */
+.form-search-content form{
+    @apply flex justify-center gap-8;
+}
+.form-search-content form input{
+    @apply ps-2 text-main border border-white hover:border-main rounded-md h-[45px] text-lg outline-none;
+    transition: all .4s;
+}
+.form-search-content form input:focus{
+    @apply border-main;
+}
+.btn-search{
+    @apply bg-main py-[10px] px-12 text-white rounded-md hover:bg-transparent hover:text-main
+    border border-white hover:border-main ;
+    transition: all .4s;
+}

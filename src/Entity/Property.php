@@ -41,6 +41,7 @@ class Property
     #[Assert\Range(min: 1, max:30 )]
     #[ORM\Column]
     private ?int $bedrooms = null;
+    
     #[Assert\Range(min: 1, max:10 )]
     #[ORM\Column]
     private ?int $floor = null;
