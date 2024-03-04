@@ -28,6 +28,16 @@ php bin/console config:dump-reference security => will show all configuration in
 - create a form Type object then render it in the property.index controller
 - and when data is submitted handle it in Repository then return the result data to the view controller.
 
+# ========= MANY TO MANY LOGIC =============
+- like database with many to many doctrine will create a new entity (table) to put 2 primary keys of two entities (Property and Option)
+, exactly like u did in blog post TP with PHP Formation at the end.
+# to create it :
+- add a new property with make:entity Option named properties
+- then select <relation> type
+- and choose the ENTITY which Option entity will be related to
+- and choose the relation type
+
+
 
 # ========= INPUTS validation
 - using #[Assert\Range(min: 1, max:10 )] allows to make constraints in form fields before submitting form.
