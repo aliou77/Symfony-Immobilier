@@ -25,7 +25,7 @@ security:
                 secret: '%kernel.secret%'
                 lifetime: 604800
                 path: /
-                always_remember_me: true
+                always_remember_me: false
                 
             form_login:
                 check_path: /login

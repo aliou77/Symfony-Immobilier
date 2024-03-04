@@ -244,4 +244,13 @@ class Property
 
         return $this;
     }
+
+    // custom function
+    public function getTruncatedString(string $value, int  $length): ?string{
+        if(strlen($value) >= $length){
+            return substr($value, 0, $length) . '...';
+        }else{
+            return $value;
+        }
+    }
 }

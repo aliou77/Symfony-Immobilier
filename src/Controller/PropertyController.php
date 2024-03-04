@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Property;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -21,13 +23,23 @@ class PropertyController extends AbstractController
     }
 
     #[Route('/properties', name: 'property.index')]
-    public function index(): Response
+    public function index(PaginatorInterface $panigator, Request $request): Response
     {
+        // create an entity which represents our research 
+        // create an form for fields
+        // handle traitments in this controller.
+
         $repo = $this->em->getRepository(Property::class);
-        $properties = $repo->findAllVisible();
+        $query = $repo->findAllVisibleQuery();
+        $propertiesPagination = $panigator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            12
+        );
         return $this->render('property/index.html.twig', [
             'controller_name' => 'PropertyController',
-            'current_menu' => 'properties'
+            'properties' => $propertiesPagination,
+            'current_menu' => 'properties',
         ]);
     }
 
@@ -42,7 +54,6 @@ class PropertyController extends AbstractController
                 ], 301);
         }
         $result = $this->em->getRepository(Property::class)->find($id);
-        dump($result);
         return $this->render('property/show.html.twig', [
             'controller_name' => 'PropertyController',
             'property' => $result,

@@ -4,8 +4,18 @@
 
 {% block body %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-</div>
+    <div class="head-properties">
+        <h1>Found 32 Properties for sell & rent</h1>
+    </div>
+    <section class="properties-section desktop-width">
+        <div class="content mb-4 flex flex-wrap gap-12 justify-center">
+            {% for property in properties %}
+                {% include '_files/property-grid.html.twig' with {'property':property} %}
+            {% endfor %}
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(properties) }}
+        </div>
+    </section>
 
 {% endblock %}

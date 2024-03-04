@@ -17,10 +17,10 @@ $(document).ready(function () {
     $(".properties-section .property-item").each((i, item)=>{
         $(item).hover(function () {
                 // over
-                $(item).find("div.read-more").slideDown()
+                $(item).find("div.read-more").css('opacity', '1')
             }, function () {
                 // out
-                $(item).find("div.read-more").slideUp()
+                $(item).find("div.read-more").css('opacity', '0')
             }
         );
     })

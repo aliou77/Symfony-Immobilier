@@ -10,12 +10,19 @@
         {% endblock %}
     </head>
     <body>
-
-        {{ include("_files/header.html.twig") }}
+        {% if page_name is not defined %}
+            {{ include("_files/header.html.twig") }}
+        {% else %}
+            
+        {% endif %}
 
         {% block body %}{% endblock %}
 
-        {{ include("_files/footer.html.twig") }}
+        {% if page_name is not defined %}
+            {{ include("_files/footer.html.twig") }}
+        {% else %}
+
+        {% endif %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}

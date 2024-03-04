@@ -4,49 +4,24 @@
 
 {% block body %}
 
-    <section class="banner-section">
-        <div class="content">
-
+    <section class="banner-section mb-[4rem]">
+        <div class="content bg-[#1c55888f] h-full w-full">
+            <div class="flex flex-col justify-center items-center h-full text-white desktop-width">
+                <h1 class="sm:text-[5rem] text-[3rem] text-center font-semibold pt-serif leading-[1]">Modern Asset In Town</h1>
+                <p class="font-medium pt-serif text-lg text-center mt-4">Find your dream house and live a beautiful life width beloved family </p>
+                <a href="{{path('property.index')}}" class="text-lg font-semibold text-white px-[20px] py-[10px] rounded-md bg-main
+                 hover:bg-back transition-all duration-300 mt-8">
+                    Explore More
+                </a>
+            </div>
         </div>
     </section>
 
-    <div class=" text-3xl">
-        {% for property in properties %}
-            <a href="{{ path('property.show', {id:property.id, slug:property.slug}) }}"><h1>{{ property.title }}</h1></a>
-            <h2>{{ property.formatedPrice }} $</h2>
-        {% endfor %}
-    </div>
-
     <section class="properties-section desktop-width">
-        <div class="content mb-4 flex gap-4 ">
-            <div class="property-item bg-[#f7adad] ">
-                <div class="img h-[14.2rem]">
-                    <!-- <img class="w-full" src="{{ asset('agence/img1.jpg') }}" alt="property"> -->
-                </div>
-                <div class="property-infos px-[20px] pb-4">
-                    <div class="infos text-lg text-center">
-                        <h2 class="font-medium capitalize mt-1">
-                            <strong>mon premier bien</strong>
-                        </h2>
-                        <p class="text-main font-medium">5000 $</p>
-                        <p class="text-back text-sm">Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <div class="details flex gap-2 flex-wrap mt-[20px]">
-                        <div class="detail-item">
-                            Rooms : <span class="text-main">3</span>
-                        </div>
-                        <div class="detail-item">
-                            Bedrooms : <span class="text-main">3</span>
-                        </div>
-                        <div class="detail-item">
-                            floor : <span class="text-main">3</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="read-more w-full bg-main p-[10px] hidden">
-                    <p class="text-center font-medium text-white">Read More</p>
-                </div>
-            </div>
+        <div class="content mb-4 flex flex-wrap gap-12 justify-center">
+            {% for property in properties %}
+                {% include '_files/property-grid.html.twig' with {'property':property} %}
+            {% endfor %}
         </div>
     </section>
 

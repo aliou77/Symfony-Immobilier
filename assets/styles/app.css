@@ -33,6 +33,20 @@ body{
     margin-right: auto;
     width: 100%;
 }
+.input-field{
+    @apply ps-2 text-main border border-white hover:border-main rounded-md h-[45px] text-lg outline-none;
+    transition: all .4s;
+}
+.input-field:focus{
+    @apply border-main;
+}
+.btn-submit{
+    @apply bg-main py-[10px] text-white rounded-md hover:bg-transparent hover:text-main sm:w-[55%] w-full mx-auto mt-[2rem]
+    border border-white hover:border-main ;
+    transition: all .4s;
+}
+
+
 /* mobile */
 @media screen and (max-width: 640px) {
     .desktop-width{
@@ -83,6 +97,11 @@ body{
 .open{
     transform: translateX(0) !important;
 }
+/* css banner */
+.banner-section{
+    background: url('../image/agence/banner-img.jpg');
+    @apply bg-no-repeat bg-cover bg-center w-full sm:h-[33rem] h-[27rem];
+}
 
 /* css footer */
 .bg-footer{
@@ -101,9 +120,9 @@ body{
     @apply max-w-[340px] w-full;
 }
 .detail-item{
-    @apply border border-main rounded-md px-2 py-1;
+    @apply border border-main rounded-md px-2 py-1 flex gap-[10px] items-center;
 }
-.property-item img{
+.property-item img, .property-item .img{
     border-radius: 5px 5px 0 0;
 }
 .properties-section .property-item{
@@ -118,5 +137,19 @@ body{
 }
 .properties-section .property-item:hover{
     @apply border-main;
-    box-shadow: 0 0 12px -2px rgb(28, 85, 136); /* x y blur propagation*/
+    box-shadow: 5px 9px 18px -6px rgb(28, 85, 136); /* x y blur propagation*/
+}
+.properties-section .property-item:hover > div.read-more{
+    opacity: 0;
+}
+div.read-more{
+    opacity: 0;
+    border-radius: 0 0 5px 5px;
+    transition: all .4s;
+}
+
+/* css login page */
+#content-login{
+    @apply border border-main rounded-md px-[20px] py-[4rem];
+    box-shadow: 3px 3px 16px -8px rgb(28, 85, 136);
 }
