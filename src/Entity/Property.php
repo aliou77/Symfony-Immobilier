@@ -39,9 +39,12 @@ class Property
      * this property represents the name of image file uploaded by VichUploader in the database.
      * @var string|null 
      */
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     // #[Assert\Image(mimeTypes:['image/jpg'])]
     private ?string $imageName = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $imageSize = null;
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
@@ -351,6 +354,26 @@ class Property
     public function setImageName($imageName)
     {
         $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imageSize
+     */ 
+    public function getImageSize()
+    {
+        return $this->imageSize;
+    }
+
+    /**
+     * Set the value of imageSize
+     *
+     * @return  self
+     */ 
+    public function setImageSize($imageSize)
+    {
+        $this->imageSize = $imageSize;
 
         return $this;
     }

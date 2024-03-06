@@ -33,10 +33,11 @@ class PropertyCrudController extends AbstractCrudController
     {
         $uploadImgDir = dirname(__DIR__, 3) . DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR .'images'.DIRECTORY_SEPARATOR.'properties';
         return [
-            ImageField::new('imageName', 'images')
+            TextField::new('imageFile', 'Property Image')->setFormType(VichImageType::class)->hideOnIndex(),
+            ImageField::new('imageName', 'images') // IT WILL JUST SHOW THE IMAGE FILE
                 ->setUploadDir($uploadImgDir) // where img will be uploaded
                 ->setUploadedFileNamePattern(fn(UploadedFile $file) => sprintf('upload_%s_%s.%s', date('d_m_Y'), $file->getFilename(), $file->guessExtension()))
-                ->setBasePath('images/properties'), // will show the image in dashbord properties
+                ->setBasePath('images/properties')->hideOnForm(), // will show the image in dashbord properties
             TextField::new('title'),
             IntegerField::new('surface'),
             IntegerField::new('rooms'),

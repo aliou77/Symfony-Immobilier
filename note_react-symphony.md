@@ -69,10 +69,17 @@ public function __toString()
 
 
 # ========= VICH UPLOADER + EASY ADMIN =============
-- to upload a file with Easy Admin back office gotta set a ImageField and add the same path configured in vich_uploader.yml file.
-like this:
+- using ImageField will upload the image with EasyAdmin uploader file (image)
 $uploadImgDir = dirname(__DIR__, 3) . '\public\images\properties';
 ImageField::new('imageName')->setUploadDir($uploadImgDir)->hideOnIndex(),
+# NB: u can use this to display the image in the properties page like this:
+ImageField::new('imageName', 'images') // IT WILL JUST SHOW THE IMAGE FILE
+    ->setUploadDir($uploadImgDir) // where img will be uploaded
+    ->setUploadedFileNamePattern(fn(UploadedFile $file) => sprintf('upload_%s_%s.%s', date('d_m_Y'), $file->getFilename(), $file->guessExtension()))
+    ->setBasePath('images/properties')->hideOnForm(), // will show the image in dashbord properties
+    
+- BUT using TextField will upload the image with VichUploader bundle
+TextField::new('imageFile', 'Property Image')->setFormType(VichImageType::class)->hideOnIndex(),
 
 
 
