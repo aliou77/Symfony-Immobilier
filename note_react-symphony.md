@@ -57,7 +57,27 @@ php bin/console doctrine:migrations:status
 php bin/console doctrine:migrations:migrate DoctrineMigrations\Version20240228165928
 
 
+# ========= BUG EASYADMIN FOR MANY TO MANY RELATIONS =============
+/**
+ * this function will return the name of each option converted to a string
+ * to display it in the edit page admin (PropertyCrudController)
+*/
+public function __toString()
+{
+    return $this->name;
+}
+
+
+# ========= VICH UPLOADER + EASY ADMIN =============
+- to upload a file with Easy Admin back office gotta set a ImageField and add the same path configured in vich_uploader.yml file.
+like this:
+$uploadImgDir = dirname(__DIR__, 3) . '\public\images\properties';
+ImageField::new('imageName')->setUploadDir($uploadImgDir)->hideOnIndex(),
+
+
+
 # ========= TASKS =============
+- Create controllers for others pages
 - Redesign search input based on template 
 - design errors layout
 - when designing property layout include displaying options

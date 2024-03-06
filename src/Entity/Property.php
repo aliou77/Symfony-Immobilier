@@ -10,9 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PropertyRepository::class)]
 #[UniqueEntity('title')]
+#[Vich\Uploadable]
 class Property
 {
     const HEAT = [
@@ -24,6 +27,24 @@ class Property
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
+    /**
+     * 
+     * @var File|null 
+     */
+    #[Vich\UploadableField(mapping: "property_image", fileNameProperty: "imageName", size:"imageSize")]
+    private ?File $imageFile = null;
+
+    /**
+     * this property represents the name of image file uploaded by VichUploader in the database.
+     * @var string|null 
+     */
+    #[ORM\Column(length: 255)]
+    // #[Assert\Image(mimeTypes:['image/jpg'])]
+    private ?string $imageName = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     #[Assert\Length(min: 10, minMessage: "Name is too short" )]
     #[ORM\Column(length: 255)]
@@ -288,4 +309,49 @@ class Property
         return $this;
     }
 
+
+    /**
+     * Get the value of imageFile
+     */ 
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set the value of imageFile
+     *
+     * @return  self
+     */ 
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+        return $this;
+    }
+
+    /**
+     * Get the value of imageName
+     */ 
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * Set the value of imageName
+     *
+     * @return  self
+     */ 
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
 }
