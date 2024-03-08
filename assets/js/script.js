@@ -26,4 +26,7 @@ $(document).ready(function () {
     })
 
 
+    // select 2 feat
+    $('select.js-select2').select2();
+
 });

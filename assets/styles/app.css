@@ -1,3 +1,6 @@
+/* files */
+@import url('select2.css');
+
 /* fonts */
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -33,6 +36,12 @@ body{
     margin-right: auto;
     width: 100%;
 }
+.property-width{
+    max-width: calc(100vw - 27rem);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
 .input-field{
     @apply ps-2 text-main border border-white hover:border-main rounded-md h-[45px] text-lg outline-none;
     transition: all .4s;
@@ -60,6 +69,12 @@ body{
         margin: 0;
         width: 100%;
     }
+    .property-width{
+        max-width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+        width: 100%;
+    }
     .ul-head-2{
         max-width: none !important;
         width: 100%;
@@ -74,6 +89,7 @@ body{
         right: 0;
         height: 100%;
         transform: translateX(45rem);
+        z-index: 10;
     }
 }
 
@@ -122,18 +138,12 @@ body{
 .detail-item{
     @apply border border-main rounded-md px-2 py-1 flex gap-[10px] items-center;
 }
-.property-item img, .property-item .img{
+.property-item img{
     border-radius: 5px 5px 0 0;
 }
 .properties-section .property-item{
     @apply border border-back rounded-md;
     transition: all .4s;
-}
-.properties-section .property-item .img{
-    background: url('../image/agence/img1.jpg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 .properties-section .property-item:hover{
     @apply border-main;
@@ -181,7 +191,7 @@ div.read-more{
 
 /* css form-search */
 .form-search-content form{
-    @apply flex justify-center gap-8;
+    @apply flex justify-center gap-8 h-[45px];
 }
 .form-search-content form input{
     @apply ps-2 text-main border border-white hover:border-main rounded-md h-[45px] text-lg outline-none;
@@ -194,4 +204,33 @@ div.read-more{
     @apply bg-main py-[10px] px-12 text-white rounded-md hover:bg-transparent hover:text-main
     border border-white hover:border-main ;
     transition: all .4s;
+}
+
+/* css property page */
+.property-title{
+    @apply relative capitalize py-[7px] sm:text-[2.2rem] text-2xl text-main font-semibold pt-serif border-back border-main;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+.property-title:before{
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 0px;
+    padding: 3px 27px;
+    background-color: #1c5588;
+}
+.tech-table{
+    @apply max-w-[500px] w-full px-[24px] text-[1.2rem];
+}
+.tech-table tr:nth-child(odd){
+    background-color: #1c5588cf;
+    color: white;
+}
+.tech-table td{
+    width: 50%;
+}
+.property-option{
+    @apply text-lg py-2 text-back p-[5px] rounded-md;
+    border: 1px solid #00000069;
 }

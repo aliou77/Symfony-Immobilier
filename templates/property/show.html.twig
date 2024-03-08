@@ -4,10 +4,70 @@
 
 {% block body %}
 
-<div class="example-wrapper">
-    <h1>{{ property.title }} </h1>
-
-    <div {{ stimulus_controller('hello') }}></div>
-</div>
+<section class="property-section property-width">
+    <div class="content mt-[5rem] mb-[10rem]">
+       <div class="top flex sm:flex-row flex-col gap-8">
+            <div class="img max-w-[550px] w-full">
+                {% if vich_uploader_asset(property, 'imageFile') is null %}
+                    <img class="w-full" src="{{ 'http://localhost:8000/images/properties/empty.jpg'}}" alt="property">
+                {% else %}
+                    <img class="w-full" src="{{ vich_uploader_asset(property, 'imageFile') }}" alt="property">
+                {% endif %}
+            </div>
+            <div class="infos">
+                <h1 class="property-title">{{ property.title }}</h1>
+                <h2 class="text-[1.5rem] mt-[10px] font-bold"> {{ property.rooms }} Rooms - {{ property.surface }} m² - {{ property.city }} <br> {{ property.address }}</h2>
+                
+                <h3 class="text-main text-[3rem] font-bold mt-[10px] ">{{ property.price }} $</h3>
+                <button type="button" class="btn-submit ">Book now</button>
+            </div>
+       </div>
+       <div class="techniques flex sm:flex-row flex-col">
+            <div class="tech-1 sm:w-1/2 w-full">
+                <h4 class="font-bold text-[2rem] text-main mt-8 mb-4">Details</h4>
+                <table class="tech-table" border="0">
+                    <tr>
+                        <td>City</td>
+                        <td class="font-semibold">{{ property.city }}</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td class="font-semibold">{{ property.address }}</td>
+                    </tr>
+                    <tr>
+                        <td>living space</td>
+                        <td class="font-semibold">{{ property.surface }} m²</td>
+                    </tr>
+                    <tr>
+                        <td>Rooms</td>
+                        <td class="font-semibold">{{ property.rooms }}</td>
+                    </tr>
+                    <tr>
+                        <td>Bed rooms</td>
+                        <td>{{ property.bedRooms }}</td>
+                    </tr>
+                    <tr>
+                        <td>Floor</td>
+                        <td class="font-semibold">{{ property.floor }}</td>
+                    </tr>
+                    <tr>
+                        <td>Heating</td>
+                        <td class="font-semibold">{{ property.typeHeat }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tech-2">
+                <h4 class="font-bold text-[2rem] text-main mt-8 mb-4">Specificities</h4>
+                <div class="options flex flex-col gap-[10px]">
+                    <p class="property-option">option 1</p>
+                    <p class="property-option">option 2</p>
+                    {% for option in property.options %}
+                        <p class="property-option">{{ option }} </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

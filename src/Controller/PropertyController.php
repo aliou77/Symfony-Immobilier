@@ -43,9 +43,11 @@ class PropertyController extends AbstractController
             $request->query->getInt('page', 1),
             12
         );
+        
         return $this->render('property/index.html.twig', [
             'controller_name' => 'PropertyController',
             'properties' => $propertiesPagination,
+            'nb_results' => $propertiesPagination->getTotalItemCount(),
             'current_menu' => 'properties',
             'form' => $form->createView()
         ]);

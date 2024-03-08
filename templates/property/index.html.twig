@@ -1,20 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PropertyController!{% endblock %}
+{% block title %}Properties{% endblock %}
 
 {% block body %}
-
-    <div class="head-properties">
-        <h1>Found 32 Properties for sell & rent</h1>
+    
+    <div class="form-search-content mt-[3rem] desktop-width">
+        <div class="content w-full">
+            {{ form_start(form) }}
+                {{ form_row(form.maxPrice) }}
+                {{ form_row(form.minSurface) }}
+                <div class="w-[27%]">
+                    {{ form_rest(form) }}
+                </div>
+                <button type="submit" class="btn-search">Search</button>
+            {{ form_end(form) }}
+        </div>
     </div>
 
-    <div class="form-search-content my-4 desktop-width">
-        {{ form_start(form) }}
-            {{ form_row(form.maxPrice) }}
-            {{ form_row(form.minSurface) }}
-            {{ form_rest(form) }}
-            <button type="submit" class="btn-search">Search</button>
-        {{ form_end(form) }}
+    <div class="head-properties desktop-width">
+        <h1 class="text-3xl font-bold my-8 pt-serif">Found <span class="text-main">{{nb_results}}</span> Properties for sell & rent</h1>
     </div>
     
     <section class="properties-section desktop-width">

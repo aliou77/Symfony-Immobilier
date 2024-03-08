@@ -1,6 +1,10 @@
-<div class="property-item bg-[#f7adad] ">
-    <div class=" h-[14.2rem]">
+<div class="property-item">
+    <div class="img">
+        {% if vich_uploader_asset(property, 'imageFile') is null %}
+            <img class="w-full" src="{{ 'images/properties/empty.jpg'}}" alt="property">
+        {% else %}
             <img class="w-full" src="{{ vich_uploader_asset(property, 'imageFile') }}" alt="property">
+        {% endif %}
     </div>
     <div class="property-infos px-[20px] pb-4">
         <div class="infos text-lg text-center">

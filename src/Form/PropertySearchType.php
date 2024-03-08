@@ -35,6 +35,9 @@ class PropertySearchType extends AbstractType
                 'required' => false,
                 'choice_label' => 'name',
                 'multiple' => true,
+                'attr' => [
+                    'class' => 'js-select2',
+                ]
             ])
         ;
     }

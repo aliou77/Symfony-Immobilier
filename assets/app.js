@@ -6,7 +6,9 @@
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
-import './script.js';
+import './js/script.js';
+
+import './js/select2.js';
 
 // for fontAwesome
 import './fontawesome/css/all.css';
