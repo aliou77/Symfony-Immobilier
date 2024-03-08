@@ -54,44 +54,12 @@ body{
     border border-white hover:border-main ;
     transition: all .4s;
 }
-
-
-/* mobile */
-@media screen and (max-width: 640px) {
-    .desktop-width{
-        max-width: none;
-        padding-left: 24px;
-        padding-right: 24px;
-        width: 100%;
-    }
-    .general-width{
-        max-width: 100%;
-        margin: 0;
-        width: 100%;
-    }
-    .property-width{
-        max-width: 100%;
-        padding-left: 24px;
-        padding-right: 24px;
-        width: 100%;
-    }
-    .ul-head-2{
-        max-width: none !important;
-        width: 100%;
-    }
-    .ul-head-2 li{
-        width: 100%;
-    }
-    /* head-2 */
-    #head-2{
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100%;
-        transform: translateX(45rem);
-        z-index: 10;
-    }
+.styled-title{
+    @apply relative capitalize py-[7px] sm:text-[2.2rem] text-[23px] text-main font-semibold pt-serif border-main;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
 }
+
 
 
 /* css header */
@@ -208,7 +176,7 @@ div.read-more{
 
 /* css property page */
 .property-title{
-    @apply relative capitalize py-[7px] sm:text-[2.2rem] text-2xl text-main font-semibold pt-serif border-back border-main;
+    @apply relative capitalize py-[7px] sm:text-[2.2rem] text-2xl text-main font-semibold pt-serif border-main;
     border-top: 2px solid;
     border-bottom: 2px solid;
 }
@@ -233,4 +201,73 @@ div.read-more{
 .property-option{
     @apply text-lg py-2 text-back p-[5px] rounded-md;
     border: 1px solid #00000069;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding: 10px;
+}
+.grid-container div{
+    overflow: hidden;
+}
+.grid-container div > *{
+    transition: all .4s;
+}
+.grid-container div > h5 {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(360deg, #000000bf, transparent);
+    transition: all .4s;
+}
+.grid-container div:hover > img{
+    transform: scale(1.2);
+}
+
+
+/* mobile */
+@media screen and (max-width: 640px) {
+    .desktop-width{
+        max-width: none;
+        padding-left: 24px;
+        padding-right: 24px;
+        width: 100%;
+    }
+    .general-width{
+        max-width: 100%;
+        margin: 0;
+        width: 100%;
+    }
+    .property-width{
+        max-width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+        width: 100%;
+    }
+    .ul-head-2{
+        max-width: none !important;
+        width: 100%;
+    }
+    .ul-head-2 li{
+        width: 100%;
+    }
+    /* head-2 */
+    #head-2{
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        transform: translateX(45rem);
+        z-index: 10;
+    }
+    .grid-container {
+        grid-template-columns: auto;
+    }
 }

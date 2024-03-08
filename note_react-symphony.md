@@ -84,10 +84,9 @@ TextField::new('imageFile', 'Property Image')->setFormType(VichImageType::class)
 
 
 # ========= TASKS =============
+- fix design login page
 - Create controllers for others pages
 - add an option for sale or rent properties with bando on properties
 - Redesign search input based on template 
-- design errors layout
-- when designing property layout include displaying options
 - display errors and success messages
 
