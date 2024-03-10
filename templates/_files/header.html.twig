@@ -58,10 +58,10 @@
                         <a href="{{ path('property.index') }}" class="item-link {% if current_menu is defined and current_menu == 'properties' %}active{% endif %}">Properties</a>
                     </li>
                     <li>
-                        <a href="#" class="item-link {% if current_menu is defined and current_menu == 'about' %}active{% endif %}">About Us</a>
+                        <a href="{{ path('about') }}" class="item-link {% if current_menu is defined and current_menu == 'about' %}active{% endif %}">About Us</a>
                     </li>
                     <li>
-                        <a href="#" class="item-link {% if current_menu is defined and current_menu == 'contact' %}active{% endif %}">Contact Us</a>
+                        <a href="{{ path('contact') }}" class="item-link {% if current_menu is defined and current_menu == 'contact' %}active{% endif %}">Contact Us</a>
                     </li>
                 </ul>
                 <div class="login sm:ms-0 ms-[20px]">
