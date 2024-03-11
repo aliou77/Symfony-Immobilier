@@ -43,7 +43,8 @@ body{
     width: 100%;
 }
 .input-field{
-    @apply ps-2 text-main border border-white hover:border-main rounded-md h-[45px] text-lg outline-none;
+    @apply ps-2 text-main border border-white hover:border-main rounded-md h-[45px] w-full text-lg outline-none;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.10);
     transition: all .4s;
 }
 .input-field:focus{
@@ -58,6 +59,27 @@ body{
     @apply relative capitalize py-[7px] sm:text-[2.2rem] text-[23px] text-main font-semibold pt-serif border-main;
     border-top: 2px solid;
     border-bottom: 2px solid;
+}
+.h-textarea{
+    height: 17rem;
+}
+.alert-success{
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    background: #007000e0;
+    color: white;
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+.alert-danger{
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    background: #d42c2c;
+    color: white;
+    border-radius: 5px;
+    margin-top: 2rem;
 }
 
 
@@ -229,6 +251,11 @@ div.read-more{
 }
 .grid-container div:hover > img{
     transform: scale(1.2);
+}
+
+/* css page contact */
+.form-contact div{
+    width: 100%;
 }
 
 

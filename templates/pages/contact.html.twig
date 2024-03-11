@@ -1,11 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PagesController!{% endblock %}
+{% block title %}Contact us{% endblock %}
 
 {% block body %}
 
 <section class="contact-section">
-    <h1>Contact</h1>
+    <div class="hidden !h-auto"></div>
+    <div class="content desktop-width">
+        <div class="form-contact sm:max-w-[65%] max-w-0 sm:mx-auto mx-0 mb-[7rem]">
+            {% if not form.vars.valid %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endif %}
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <h1 class="styled-title my-[5rem] w-[14rem] mx-auto text-center">Contact us</h1>
+            {{ form_start(form) }}
+                <div class="form-item flex sm:flex-row flex-col justify-between gap-8 my-8">
+                    {{ form_row(form.firstname, {'attr': {'class': 'input-field'}}) }}
+                    {{ form_row(form.lastname, {'attr': {'class': 'input-field'}}) }}
+                </div>
+                <div class="form-item flex sm:flex-row flex-col justify-between gap-8 my-8">
+                    {{ form_row(form.email, {'attr': {'class': 'input-field'}}) }}
+                    {{ form_row(form.phone, {'attr': {'class': 'input-field'}}) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.message, {'attr': {'class': 'input-field !h-auto'}}) }}
+                </div>
+
+                <button type="submit" class="btn-submit !w-[12rem] flex justify-center">Contact now</button>
+            {{ form_rest(form) }}
+        </div>
+    </div>
 </section>
 
 {% endblock %}
