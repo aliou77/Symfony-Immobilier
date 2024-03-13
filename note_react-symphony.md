@@ -81,11 +81,15 @@ ImageField::new('imageName', 'images') // IT WILL JUST SHOW THE IMAGE FILE
 - BUT using TextField will upload the image with VichUploader bundle
 TextField::new('imageFile', 'Property Image')->setFormType(VichImageType::class)->hideOnIndex(),
 
+# ========= BACK TO A MIGRATION =============
+- php bin/console doctrine:migrations:status => See status of migrations and pick the previous migration
+- php bin/console doctrine:migrations:migrate DoctrineMigrations\Version20240313180240 => then migrate to this version.
 
 
 # ========= TASKS =============
-- Create controllers for others pages
 - add an option for sale or rent properties with bando on properties
+here create a new property called PropertyOptions for sale or rent
 - Redesign search input based on template 
-- display errors and success messages
+- add map feature in property.show page
+- design back offiche
 

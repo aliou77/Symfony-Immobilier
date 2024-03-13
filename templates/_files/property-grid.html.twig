@@ -1,9 +1,18 @@
 <div class="property-item">
-    <div class="img">
+    {# {{ property.tag }} #}
+    <div class="img relative">
         {% if vich_uploader_asset(property, 'imageFile') is null %}
             <img class="w-full" src="{{ 'images/properties/empty.jpg'}}" alt="property">
         {% else %}
             <img class="w-full" src="{{ vich_uploader_asset(property, 'imageFile') }}" alt="property">
+        {% endif %}
+        <div class="read-more w-full bg-[#1c5588c4] p-[10px]">
+            <p class="text-center font-medium text-white"><a href="{{ path('property.show', {id:property.id, slug:property.slug}) }}">Read More</a></p>
+        </div>
+        {% if property.tag  %}
+            <div class="ribbon pt-serif">
+                {{ property.tag }}
+            </div>
         {% endif %}
     </div>
     <div class="property-infos px-[20px] pb-4">
@@ -122,7 +131,5 @@
             </div>
         </div>
     </div>
-    <div class="read-more w-full bg-main p-[10px]">
-        <p class="text-center font-medium text-white"><a href="{{ path('property.show', {id:property.id, slug:property.slug}) }}">Read More</a></p>
-    </div>
+    
 </div>

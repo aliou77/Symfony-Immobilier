@@ -31,7 +31,6 @@ class PropertyCrudController extends AbstractCrudController
     // to personalize the EasyAdmin dashboard layout 
     public function configureFields(string $pageName): iterable
     {
-        $uploadImgDir = dirname(__DIR__, 3) . DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR .'images'.DIRECTORY_SEPARATOR.'properties';
         return [
             TextField::new('imageFile', 'Property Image')->setFormType(VichImageType::class)->hideOnIndex(),
             ImageField::new('imageName', 'images') // IT WILL JUST SHOW THE IMAGE FILE
@@ -49,6 +48,7 @@ class PropertyCrudController extends AbstractCrudController
             TextField::new('postal_code')->hideOnIndex(),
             DateField::new('created_at')->hideOnForm(),
             AssociationField::new('options')->hideOnIndex(), // gotta define __toString() in Option Entity file.
+            AssociationField::new('tag'), 
         ];
     }
 

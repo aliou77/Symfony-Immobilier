@@ -143,8 +143,11 @@ body{
     opacity: 0;
 }
 div.read-more{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
     opacity: 0;
-    border-radius: 0 0 5px 5px;
     transition: all .4s;
 }
 
@@ -251,6 +254,32 @@ div.read-more{
 }
 .grid-container div:hover > img{
     transform: scale(1.2);
+}
+.ribbon{
+    position: absolute;
+    top: 20px;
+    right: -10px;
+    line-height: 24px;
+    padding: 5px 20px;
+    border-radius: 5px 5px 0 5px;
+    text-align: right;
+    color: #ffffff;
+    background: #d40000;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.ribbon.show{
+    right: -9px;
+    padding: 7px 30px;
+}
+.ribbon::after{
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 100%;
+    border: 5px solid transparent;
+    border-left: 5px solid #6b0000;
+    border-top: 5px solid #6b0000;
 }
 
 /* css page contact */

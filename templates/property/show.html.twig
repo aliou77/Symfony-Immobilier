@@ -7,11 +7,17 @@
 <section class="property-section property-width">
     <div class="content mt-[5rem] mb-[10rem]">
        <div class="top flex sm:flex-row flex-col gap-8">
-            <div class="img max-w-[550px] w-full">
+            <div class="img relative max-w-[550px] w-full">
                 {% if vich_uploader_asset(property, 'imageFile') is null %}
                     <img class="w-full" src="{{ 'http://localhost:8000/images/properties/empty.jpg'}}" alt="property">
                 {% else %}
                     <img class="w-full" src="{{ vich_uploader_asset(property, 'imageFile') }}" alt="property">
+                {% endif %}
+
+                {% if property.tag  %}
+                    <div class="ribbon show pt-serif">
+                        {{ property.tag }}
+                    </div>
                 {% endif %}
             </div>
             <div class="infos">
@@ -59,11 +65,14 @@
             <div class="tech-2">
                 <h4 class="font-bold text-[2rem] text-main mt-8 mb-4">Specificities</h4>
                 <div class="options flex flex-col gap-[10px]">
-                    <p class="property-option">option 1</p>
-                    <p class="property-option">option 2</p>
-                    {% for option in property.options %}
-                        <p class="property-option">{{ option }} </p>
-                    {% endfor %}
+                    {% if property.options  is not empty  %}
+                        {% for option in property.options %}
+                            <p class="property-option">{{ option }} </p>
+                        {% endfor %}
+                    {% else %}
+                       <p class="text-lg text-gray-500">Specificities not found</p>
+                    {% endif %}
+                    
                 </div>
             </div>
         </div>

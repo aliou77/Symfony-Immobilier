@@ -97,6 +97,9 @@ class Property
     #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'properties')]
     private Collection $options;
 
+    #[ORM\ManyToOne(inversedBy: 'properties')]
+    private ?PropertyTag $tag = null;
+
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
@@ -374,6 +377,18 @@ class Property
     public function setImageSize($imageSize)
     {
         $this->imageSize = $imageSize;
+
+        return $this;
+    }
+
+    public function getTag(): ?PropertyTag
+    {
+        return $this->tag;
+    }
+
+    public function setTag(?PropertyTag $tap): static
+    {
+        $this->tag = $tap;
 
         return $this;
     }
