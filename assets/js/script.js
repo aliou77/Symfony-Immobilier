@@ -39,6 +39,11 @@ $(document).ready(function () {
 
     // openstreetmap feat configuration
     try {
+        if($('#lat').data('latitude')){
+            $("#network-error").remove('hidden');
+        }else{
+            $("#network-error").addClass('hidden');
+        }
         var lat = $('#lat').data('latitude') ? $('#lat').data('latitude') : 51.505, 
             long = $('#long').data('longitude') ? $('#long').data('longitude') : -0.09;
         

@@ -88,10 +88,8 @@
             <span id="long" data-longitude="{{ property.longitude }}"></span>
             <h4 class="font-bold text-center text-[2rem] text-main mt-[4rem] mb-4">Location</h4>
             <div class="map-content">
+                <p id="network-error" class="text-center text-gray-600 text-lg">Map not available due to Network <span class="text-red-700">ERROR</span></p>
                 <div id="map">
-                    {% if property.latitude is null and property.longitude is null %}
-                        <p class="text-center text-gray-600 text-lg">Map not available due to Network <span class="text-red-700">ERROR</span></p>
-                    {% endif %}
                 </div>
             </div>
         </div>
