@@ -29,4 +29,25 @@ $(document).ready(function () {
     // select 2 feat
     $('select.js-select2').select2();
 
+    // openstreetmap feat configuration
+    try {
+        var lat = $('#lat').data('latitude') ? $('#lat').data('latitude') : 51.505, 
+            long = $('#long').data('longitude') ? $('#long').data('longitude') : -0.09;
+        
+        var map = L.map('map').setView([lat, long], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            minZoom: 1,
+            maxZoom: 20,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    
+        // add polygone (pointer sur la carte)
+        var marker = L.marker([lat, long]).addTo(map);
+    
+        // popups
+        // marker.bindPopup("<h1>London</h1>").openPopup(); 
+    } catch (error) {
+        console.log("Leaflet Library is not downloaded !");
+    }
+
 });

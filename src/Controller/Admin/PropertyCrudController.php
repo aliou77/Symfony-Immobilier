@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\DomCrawler\Field\FileFormField;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -47,6 +48,8 @@ class PropertyCrudController extends AbstractCrudController
             TextField::new('address')->hideOnIndex(),
             TextField::new('postal_code')->hideOnIndex(),
             DateField::new('created_at')->hideOnForm(),
+            NumberField::new('latitude')->hideOnIndex(),
+            NumberField::new('longitude')->hideOnIndex(),
             AssociationField::new('options')->hideOnIndex(), // gotta define __toString() in Option Entity file.
             AssociationField::new('tag'), 
         ];

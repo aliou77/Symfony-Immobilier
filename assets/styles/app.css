@@ -281,11 +281,23 @@ div.read-more{
     border-left: 5px solid #6b0000;
     border-top: 5px solid #6b0000;
 }
+#map{
+    height: 300px;
+}
+
+
 
 /* css page contact */
 .form-contact div{
     width: 100%;
 }
+
+
+
+
+
+
+
 
 
 /* mobile */

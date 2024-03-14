@@ -2,6 +2,13 @@
 
 {% block title %}{{ property.title }} {% endblock %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+{% endblock %}
+
 {% block body %}
 
 <section class="property-section property-width">
@@ -24,7 +31,7 @@
                 <h1 class="property-title">{{ property.title }}</h1>
                 <h2 class="text-[1.5rem] mt-[10px] font-bold"> {{ property.rooms }} Rooms - {{ property.surface }} m² - {{ property.city }} <br> {{ property.address }}</h2>
                 
-                <h3 class="text-main text-[3rem] font-bold mt-[10px] ">{{ property.price }} $</h3>
+                <h3 class="text-main text-[3rem] font-bold mt-[10px] ">{{ property.formatedPrice }} $</h3>
                 <button type="button" class="btn-submit ">Book now</button>
             </div>
        </div>
@@ -76,7 +83,31 @@
                 </div>
             </div>
         </div>
+        <div class="map-section">
+            <span id="lat" data-latitude="{{ property.latitude }}"></span>
+            <span id="long" data-longitude="{{ property.longitude }}"></span>
+            <h4 class="font-bold text-center text-[2rem] text-main mt-[4rem] mb-4">Location</h4>
+            <div class="map-content">
+                <div id="map">
+                    {% if property.latitude is null and property.longitude is null %}
+                        <p class="text-center text-gray-600 text-lg">Map not available due to Network <span class="text-red-700">ERROR</span></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {% block importmap %}
+        {{ importmap('app') }}
+    {% endblock %}
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin="" defer></script>
+     
 {% endblock %}

@@ -87,9 +87,9 @@ TextField::new('imageFile', 'Property Image')->setFormType(VichImageType::class)
 
 
 # ========= TASKS =============
-- add an option for sale or rent properties with bando on properties
-here create a new property called PropertyOptions for sale or rent
-- Redesign search input based on template 
-- add map feature in property.show page
+- add map feature in property.show page just display it
 - design back offiche
 
+==================
+- add an option for sale or rent properties with bando on properties
+here create a new property called PropertyTag for sale or rent with <ManyToOne> relation
