@@ -184,17 +184,17 @@ div.read-more{
 
 /* css form-search */
 .form-search-content form{
-    @apply flex justify-center gap-8 h-[45px];
+    @apply flex sm:flex-row flex-col sm:justify-center justify-normal gap-8 sm:h-[45px] h-full;
 }
 .form-search-content form input{
-    @apply ps-2 text-main border border-white hover:border-main rounded-md h-[45px] text-lg outline-none;
+    @apply w-full ps-2 text-main border border-white hover:border-main rounded-md h-[45px] text-lg outline-none;
     transition: all .4s;
 }
 .form-search-content form input:focus{
     @apply border-main;
 }
 .btn-search{
-    @apply bg-main py-[10px] px-12 text-white rounded-md hover:bg-transparent hover:text-main
+    @apply bg-main py-[10px] px-12 text-white rounded-md hover:bg-white hover:text-main sm:w-auto w-[75%] sm:mx-0 mx-auto
     border border-white hover:border-main ;
     transition: all .4s;
 }
@@ -337,5 +337,9 @@ div.read-more{
     }
     .grid-container {
         grid-template-columns: auto;
+    }
+
+    .form-search-content .content{
+        @apply absolute top-0 left-0 w-full h-full z-[10] bg-[#1c5588e8] p-8;
     }
 }

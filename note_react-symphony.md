@@ -87,7 +87,6 @@ TextField::new('imageFile', 'Property Image')->setFormType(VichImageType::class)
 
 
 # ========= TASKS =============
-- design back offiche dashboard
 - design a modal for search fields when mobile
 - handle sign in button.
 - make tests for all applications

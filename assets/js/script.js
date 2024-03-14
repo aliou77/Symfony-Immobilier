@@ -25,6 +25,14 @@ $(document).ready(function () {
         );
     })
 
+    //  js for filters layout
+    $("#open-filters").click(()=>{
+        $(".form-search-content .content").removeClass('hidden');
+    })
+    $("#close-filters").click(()=>{
+        $(".form-search-content .content").addClass('hidden');
+    })
+
 
     // select 2 feat
     $('select.js-select2').select2();
