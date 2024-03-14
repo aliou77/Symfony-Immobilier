@@ -87,8 +87,10 @@ TextField::new('imageFile', 'Property Image')->setFormType(VichImageType::class)
 
 
 # ========= TASKS =============
-- add map feature in property.show page just display it
-- design back offiche
+- design back offiche dashboard
+- design a modal for search fields when mobile
+- handle sign in button.
+- make tests for all applications
 
 ==================
 - add an option for sale or rent properties with bando on properties
