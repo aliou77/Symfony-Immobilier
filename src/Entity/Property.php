@@ -122,7 +122,10 @@ class Property
         return $this->title;
     }
 
-    public function getSlug(): ?string{
+    public function getSlug(?string $string = null): ?string{
+        if($string){
+            return (new Slugify())->slugify($string);
+        }
         return (new Slugify())->slugify($this->title);
     }
 
@@ -214,7 +217,10 @@ class Property
         return $this->heat;
     }
 
-    public function getTypeHeat(): ?string{
+    public function getTypeHeat(?int $heat = null): ?string{
+        if($heat){
+            return self::HEAT[$heat];
+        }
         return self::HEAT[$this->heat];
     }
 

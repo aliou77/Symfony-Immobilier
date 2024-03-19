@@ -1,0 +1,1 @@
+php bin/phpunit --coverage-html var/log/test-coverage

@@ -85,9 +85,36 @@ TextField::new('imageFile', 'Property Image')->setFormType(VichImageType::class)
 - php bin/console doctrine:migrations:status => See status of migrations and pick the previous migration
 - php bin/console doctrine:migrations:migrate DoctrineMigrations\Version20240313180240 => then migrate to this version.
 
+# ========= TEST COVERAGE =============
+- link to confiure database test before doing functional tests
+https://symfony.com/doc/current/testing.html#configuring-a-database-for-tests
+- configure .env.test file
+# and this line in .env.test.local file
+DATABASE_URL="mysql://USERNAME:PASSWORD@127.0.0.1:3306/DB_NAME?serverVersion=5.7"
+# then create the test database
+php bin/console --env=test doctrine:database:create
+# make all migrations
+php bin/console --env=test doctrine:migrations:migrate
+# and add all fixtures inside the test database
+php bin/console --env=test doctrine:fixtures:load
+
+- will generate a test coverage for all components of the application and will save it in test-coverage. 
+php bin/phpunit --coverage-html var/log/test-coverage
+
+# NB: to make it works gotta configure the php.ini used by the terminal, make a php -v to know what php.ini file to update the coverage option.
+
+# Fonctional tests
+for loading pages and other tests
+php bin/console make:fonctional-test
+# NB: to make functional test gotta create a new DB based on the current like agence_test
+
+
+
 
 # ========= TASKS =============
 - make tests for all applications
+- set up all fixtures and put them into the test database
+- then start testing 
 
 ==================
 - add an option for sale or rent properties with bando on properties
