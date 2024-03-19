@@ -112,9 +112,6 @@ php bin/console make:fonctional-test
 
 
 # ========= TASKS =============
-- make tests for all applications
-- set up all fixtures and put them into the test database
-- then start testing 
 
 ==================
 - add an option for sale or rent properties with bando on properties
