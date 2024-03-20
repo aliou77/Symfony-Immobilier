@@ -37,13 +37,18 @@ $(document).ready(function () {
     // select 2 feat
     $('select.js-select2').select2();
 
+    // Check you are online or not 
+    if (navigator.onLine) { 
+        $("#network-error").hide();
+        // console. log("online"); 
+    } else { 
+        $("#network-error").show();
+        // console. log("offline"); 
+    }
+
     // openstreetmap feat configuration
     try {
-        if($('#lat').data('latitude')){
-            $("#network-error").remove('hidden');
-        }else{
-            $("#network-error").addClass('hidden');
-        }
+
         var lat = $('#lat').data('latitude') ? $('#lat').data('latitude') : 51.505, 
             long = $('#long').data('longitude') ? $('#long').data('longitude') : -0.09;
         

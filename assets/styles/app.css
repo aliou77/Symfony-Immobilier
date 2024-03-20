@@ -184,7 +184,7 @@ div.read-more{
 
 /* css form-search */
 .form-search-content form{
-    @apply flex sm:flex-row flex-col sm:justify-center justify-normal gap-8 sm:h-[45px] h-full;
+    @apply flex sm:flex-row flex-col items-end sm:justify-center justify-normal gap-8 sm:h-[45px] h-full;
 }
 .form-search-content form input{
     @apply w-full ps-2 text-main border border-white hover:border-main rounded-md h-[45px] text-lg outline-none;
@@ -192,6 +192,9 @@ div.read-more{
 }
 .form-search-content form input:focus{
     @apply border-main;
+}
+.form-search-content form div ul li{
+    color: #EF0A0E;
 }
 .btn-search{
     @apply bg-main py-[10px] px-12 text-white rounded-md hover:bg-white hover:text-main sm:w-auto w-[75%] sm:mx-0 mx-auto
