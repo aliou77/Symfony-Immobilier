@@ -46,6 +46,20 @@ $(document).ready(function () {
         // console. log("offline"); 
     }
 
+    // modal success message for booking a property
+    $("#btn-booking").click(()=>{
+        $("#booking-modal").show(200);
+    })
+
+    // when click outside of modal 
+    document.addEventListener('click', (event) => {
+        // console.log(event.target);
+        if (event.target ==  $("#booking-modal .modal-content")[0]) {
+            $("#booking-modal").hide(200);
+        }
+    });
+
+
     // openstreetmap feat configuration
     try {
 
